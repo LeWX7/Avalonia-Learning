@@ -3,7 +3,7 @@
         xmlns:vm="using:AvaloniaApplication1_TempConverter.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d" d:DesignWidth="275" d:DesignHeight="210"
         x:Class="AvaloniaApplication1_TempConverter.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
@@ -15,6 +15,16 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Border Margin="5" CornerRadius="10" Background="Gray">
+            <TextBlock Margin="5" FontSize="24" Text="Temperature Converter"></TextBlock>
+        </Border>
+        <Grid ShowGridLines="True" Margin="5" ColumnDefinitions="120, 100" RowDefinitions="Auto, Auto">
+            <TextBlock Grid.Row="0" Grid.Column="0" Margin="10">Celsius</TextBlock>
+            <TextBox Grid.Row="0" Grid.Column="1" Margin="0 5" Text="0"></TextBox>
+            <TextBlock Grid.Row="1" Grid.Column="0" Margin="10">Fahrenheit</TextBlock>
+            <TextBox Grid.Row="1" Grid.Column="1" Margin="0 5" Text="0"></TextBox>
+        </Grid>
+        <Button HorizontalAlignment="Center">Calculate</Button>
+    </StackPanel>
 </Window>
