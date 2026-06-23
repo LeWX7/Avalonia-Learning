@@ -15,7 +15,11 @@ namespace AvaloniaApplication1_TempConverter.Views
 
         private void Calculate(object? sender, RoutedEventArgs e)
         {
-            if (double.TryParse(Celsius.Text, out double C))
+            if (string.IsNullOrEmpty(Celsius.Text) || Celsius.Text == "-")
+            {
+                Fahrenheit.Text = "";
+            }
+            else if (double.TryParse(Celsius.Text, out double C))
             {
                 var F = C * (9d / 5d) + 32;
 
