@@ -29,7 +29,7 @@
                      TextChanged="Celsius_TextChanged"></TextBox>
             <TextBlock Grid.Row="1" Grid.Column="0" Margin="10">Fahrenheit</TextBlock>
             <TextBox Name="Fahrenheit" Grid.Row="1" Grid.Column="1" Margin="0 5" Text="0"
-                     IsReadOnly="True"/>
+                     TextChanged="Fahrenheit_TextChanged"/>
         </Grid>
         <!--<Button HorizontalAlignment="Center" Click="Button_OnClick">Calculate</Button>-->
     </StackPanel>

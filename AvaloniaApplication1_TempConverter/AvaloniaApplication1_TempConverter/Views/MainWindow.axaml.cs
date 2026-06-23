@@ -8,12 +8,14 @@ namespace AvaloniaApplication1_TempConverter.Views
 {
     public partial class MainWindow : Window
     {
+        private string unit = "";
+
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void Calculate(object? sender, RoutedEventArgs e)
+        private void Celsius_TextChanged(object? sender, TextChangedEventArgs e)
         {
             if (string.IsNullOrEmpty(Celsius.Text) || Celsius.Text == "-")
             {
@@ -27,16 +29,36 @@ namespace AvaloniaApplication1_TempConverter.Views
             }
             else
             {
-                Celsius.Text = "0";
-                Fahrenheit.Text = "0";
-
-                Debug.WriteLine("Invalid input for Celsius temperature.");
+                unit = "Celsius";
+                Handling_incorrectInput();
             }
         }
 
-        private void Celsius_TextChanged(object? sender, TextChangedEventArgs e)
+        private void Fahrenheit_TextChanged(object? sender, TextChangedEventArgs e)
         {
-            Calculate(sender, e);
+            if (string.IsNullOrEmpty(Fahrenheit.Text) || Fahrenheit.Text == "-")
+            {
+                Celsius.Text = "";
+            }
+            else if (double.TryParse(Fahrenheit.Text, out double F))
+            {
+                var C = (F - 32) * 5d / 9d;
+
+                Celsius.Text = C.ToString("0.0");
+            }
+            else
+            {
+                unit = "Fahrenheit";
+                Handling_incorrectInput();
+            }
+        }
+
+        private void Handling_incorrectInput()
+        {
+            Celsius.Text = "0";
+            Fahrenheit.Text = "0";
+
+            Debug.WriteLine($"Invalid input for {unit} temperature.");
         }
     }
 }
