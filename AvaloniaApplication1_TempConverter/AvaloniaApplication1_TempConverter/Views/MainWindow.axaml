@@ -22,12 +22,13 @@
             <TextBlock HorizontalAlignment="Center" Margin="5" FontSize="24" 
                        Text="Temperature Converter"></TextBlock>
         </Border>
-        <Grid ShowGridLines="True" Margin="5"
+        <Grid ShowGridLines="False" Margin="5"
               ColumnDefinitions="120, 100" RowDefinitions="Auto, Auto">
             <TextBlock Grid.Row="0" Grid.Column="0" Margin="10">Celsius</TextBlock>
             <TextBox Name="Celsius" Grid.Row="0" Grid.Column="1" Margin="0 5" Text="0"></TextBox>
             <TextBlock Grid.Row="1" Grid.Column="0" Margin="10">Fahrenheit</TextBlock>
-            <TextBox Name="Fahrenheit" Grid.Row="1" Grid.Column="1" Margin="0 5" Text="0"></TextBox>
+            <TextBox Name="Fahrenheit" Grid.Row="1" Grid.Column="1" Margin="0 5" Text="0"
+                     IsReadOnly="True"/>
         </Grid>
         <Button HorizontalAlignment="Center" Click="Button_OnClick">Calculate</Button>
     </StackPanel>
