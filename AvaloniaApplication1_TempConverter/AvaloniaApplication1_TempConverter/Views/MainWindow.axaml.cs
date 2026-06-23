@@ -13,7 +13,7 @@ namespace AvaloniaApplication1_TempConverter.Views
             InitializeComponent();
         }
 
-        private void Button_OnClick(object? sender, RoutedEventArgs e)
+        private void Calculate(object? sender, RoutedEventArgs e)
         {
             if (double.TryParse(Celsius.Text, out double C))
             {
@@ -28,6 +28,11 @@ namespace AvaloniaApplication1_TempConverter.Views
 
                 Debug.WriteLine("Invalid input for Celsius temperature.");
             }
+        }
+
+        private void Celsius_TextChanged(object? sender, TextChangedEventArgs e)
+        {
+            Calculate(sender, e);
         }
     }
 }
