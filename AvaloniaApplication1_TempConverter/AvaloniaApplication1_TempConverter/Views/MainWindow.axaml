@@ -3,13 +3,25 @@
         xmlns:vm="using:AvaloniaApplication1_TempConverter.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="450"
+        mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="150"
         x:Class="AvaloniaApplication1_TempConverter.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
-        Title="AvaloniaApplication1_TempConverter"
-        Width="400"
-        Height="450">
+        Title="Temperature Converter"
+        Width="300"
+        Height="150">
+
+    <Window.Background>
+        <LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,100%">
+            <GradientStop Color="#1F2335" Offset="0.00"/>
+            <GradientStop Color="#2A2F45" Offset="0.16"/>
+            <GradientStop Color="#3B3054" Offset="0.32"/>
+            <GradientStop Color="#4A395F" Offset="0.48"/>
+            <GradientStop Color="#5A4B6E" Offset="0.64"/>
+            <GradientStop Color="#4A5B6A" Offset="0.80"/>
+            <GradientStop Color="#3A4A5A" Offset="1.00"/>
+        </LinearGradientBrush>
+    </Window.Background>
 
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
@@ -18,9 +30,10 @@
     </Design.DataContext>
 
     <StackPanel>
-        <Border Margin="5" CornerRadius="10" Background="Gray">
-            <TextBlock HorizontalAlignment="Center" Margin="5" FontSize="24" 
-                       Text="Temperature Converter"></TextBlock>
+        <Border Margin="5" CornerRadius="10" Background="#3B3054">
+            <TextBlock HorizontalAlignment="Center" Margin="5" FontSize="18" 
+                       Foreground="#5A4B6E"
+                       Text="(～￣▽￣)～✨🌡️✨q(≧▽≦q)"></TextBlock>
         </Border>
         <Grid ShowGridLines="False" Margin="5"
               ColumnDefinitions="120, 100" RowDefinitions="Auto, Auto">
@@ -31,6 +44,5 @@
             <TextBox Name="Fahrenheit" Grid.Row="1" Grid.Column="1" Margin="0 5" Text="0"
                      TextChanged="Fahrenheit_TextChanged"/>
         </Grid>
-        <!--<Button HorizontalAlignment="Center" Click="Button_OnClick">Calculate</Button>-->
     </StackPanel>
 </Window>
