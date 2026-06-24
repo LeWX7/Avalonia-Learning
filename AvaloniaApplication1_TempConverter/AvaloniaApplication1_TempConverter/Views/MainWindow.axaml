@@ -25,16 +25,25 @@
 
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
-             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
     <StackPanel>
-        <Border Margin="5" CornerRadius="10" Background="#3B3054">
-            <TextBlock HorizontalAlignment="Center" Margin="5" FontSize="18" 
-                       Foreground="#5A4B6E"
-                       Text="(～￣▽￣)～✨🌡️✨q(≧▽≦q)"></TextBlock>
-        </Border>
+        <TextBlock HorizontalAlignment="Center" Margin="5" FontSize="18"
+                   Text="(～￣▽￣)～✨🌡️✨q(≧▽≦q)">
+            <TextBlock.Foreground>
+                <LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,100%">
+                    <GradientStop Color="#3A4A5A" Offset="0.00"/>
+                    <GradientStop Color="#4A5B6A" Offset="0.16"/>
+                    <GradientStop Color="#5A4B6E" Offset="0.32"/>
+                    <GradientStop Color="#4A395F" Offset="0.48"/>
+                    <GradientStop Color="#3B3054" Offset="0.64"/>
+                    <GradientStop Color="#2A2F45" Offset="0.80"/>
+                    <GradientStop Color="#1F2335" Offset="1.00"/>
+                </LinearGradientBrush>
+            </TextBlock.Foreground>
+        </TextBlock>
         <Grid ShowGridLines="False" Margin="5"
               ColumnDefinitions="120, 100" RowDefinitions="Auto, Auto">
             <TextBlock Grid.Row="0" Grid.Column="0" Margin="10">Celsius</TextBlock>
